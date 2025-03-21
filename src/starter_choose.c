@@ -110,11 +110,12 @@ static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
     {8, 4},
 };
 
+//Changed the starter mons. Probably won't use this at all later.
 static const u16 sStarterMon[STARTER_MON_COUNT] =
 {
-    SPECIES_TREECKO,
-    SPECIES_TORCHIC,
-    SPECIES_MUDKIP,
+    SPECIES_SANDSHREW,
+    SPECIES_GULPIN,
+    SPECIES_GROUDON,
 };
 
 static const struct BgTemplate sBgTemplates[3] =

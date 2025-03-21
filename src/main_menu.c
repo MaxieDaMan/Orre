@@ -1078,7 +1078,8 @@ static void Task_HandleMainMenuAPressed(u8 taskId)
             default:
                 gPlttBufferUnfaded[0] = RGB_BLACK;
                 gPlttBufferFaded[0] = RGB_BLACK;
-                gTasks[taskId].func = Task_NewGameBirchSpeech_Init;
+				//Skips the character creation process.
+                gTasks[taskId].func = Task_NewGameBirchSpeech_Cleanup;
                 break;
             case ACTION_CONTINUE:
                 gPlttBufferUnfaded[0] = RGB_BLACK;
@@ -1794,6 +1795,20 @@ static void Task_NewGameBirchSpeech_FadePlayerToWhite(u8 taskId)
 
 static void Task_NewGameBirchSpeech_Cleanup(u8 taskId)
 {
+	//sets the player gender to Male and then checks the gender before setting a default name.
+	const u8 *name;
+    u8 i;
+	
+	gSaveBlock2Ptr->playerGender = MALE;
+	
+	if (gSaveBlock2Ptr->playerGender == MALE)
+        name = sMalePresetNames[10];
+    else
+        name = sFemalePresetNames[1];
+    for (i = 0; i < PLAYER_NAME_LENGTH; i++)
+        gSaveBlock2Ptr->playerName[i] = name[i];
+    gSaveBlock2Ptr->playerName[PLAYER_NAME_LENGTH] = EOS;
+	
     if (!gPaletteFade.active)
     {
         FreeAllWindowBuffers();
