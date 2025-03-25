@@ -1,3 +1,6 @@
+## Based off RHH's pokeemerald-expansion 1.11.0:
+https://github.com/rh-hideout/pokeemerald-expansion/
+
 ## Mega Evolution Overworld Sprite Credits:
 - [princess-phoenix](https://www.deviantart.com/princess-phoenix)
 - [larryturbo](https://www.deviantart.com/larryturbo)
